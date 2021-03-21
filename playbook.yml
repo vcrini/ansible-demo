@@ -2,7 +2,15 @@
 - hosts: all
   become: yes
   tasks:
-    - name: ensure neovim is installed
+    - name: ensure some packages are installed
       package:
-        name: neovim
+        name: "{{ item }}"
         state: present
+      loop:
+        - htop
+        - ncdu
+        - neofetch
+        - neovim
+        - ranger
+        - trash-cli
+        - vim
